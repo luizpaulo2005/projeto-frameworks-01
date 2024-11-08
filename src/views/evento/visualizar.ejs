@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Detalhes do Evento</title>
+    <script src="https://cdn.tailwindcss.com" defer></script>
+  </head>
+  <body class="flex flex-col gap-4 p-6 antialiased">
+    <div class="flex items-center gap-2">
+      <a href="/evento">
+        <img src="/move-left.png" class="hover:outline hover:outline-2 hover:outline-gray-500 rounded-full p-1">
+      </a>
+      <span class="font-medium text-3xl">Detalhes do Evento</span>
+    </div>
+
+    <div class="px-1 w-full max-w-2xl">
+      <h1 class="font-semibold text-2xl mb-4"><%= evento.nome %></h1>
+      
+      <p class="mb-2">
+        Descrição:
+        <span class="font-medium text-clip w-full">
+          <%= evento.descricao %>
+        </span>
+      </p>
+      <p class="mb-2">Data do evento: <span class="font-semibold"><%= evento.data %></span></p>
+      <p class="mb-2">Local: <span class="font-semibold"><%= evento.local %></span></p>
+      <p class="mb-2">Endereço: <span class="font-semibold"><%= evento.endereco %></span></p>
+      <p class="mb-2">Cidade: <span class="font-semibold"><%= evento.cidade %></span></p>
+      <p class="mb-2">Estado: <span class="font-semibold"><%= evento.estado %></span></p>
+      <p class="mb-2">País: <span class="font-semibold"><%= evento.pais %></span></p>
+      <p class="mb-2">CEP: <span class="font-semibold"><%= evento.cep %></span></p>
+      
+      <div class="mt-4 pt-4 text-sm text-gray-600">
+        <p>Criado em: <span class="font-medium"><%= evento.criadoEm %></span></p>
+        <p>Atualizado em: <span class="font-medium"><%= evento.atualizadoEm %></span></p>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,22 @@
+{
+  "name": "projeto-frameworks-01",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node --watch src/index.js"
+  },
+  "author": "luizp <luizpaulorodrigues2005@gmail.com> (https://github.com/luizpaulo2005)",
+  "license": "MIT",
+  "description": "",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dayjs": "^1.11.13",
+    "ejs": "^3.1.10",
+    "express": "^4.21.1",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "@faker-js/faker": "^9.2.0"
+  }
+}

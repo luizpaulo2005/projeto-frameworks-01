@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Eventos</title>
+    <script src="https://cdn.tailwindcss.com" defer></script>
+    <script>
+      function redirectToSearch() {
+        const input = document.getElementById("nome");
+        const nome = input.value.trim();
+        if (nome) {
+          window.location.href = `/evento/buscar?nome=${encodeURIComponent(
+            nome
+          )}`;
+        } else {
+          alert("Por favor, insira um valor para buscar.");
+        }
+      }
+
+      window.onload = function () {
+        document
+          .getElementById("nome")
+          .addEventListener("keypress", function (event) {
+            if (event.key === "Enter") {
+              event.preventDefault();
+              redirectToSearch();
+            }
+          });
+      };
+    </script>
+  </head>
+  <body class="flex flex-col gap-2 p-6 antialised">
+    <div class="flex justify-between items-center">
+      <p class="font-medium text-3xl">Eventos</p>
+      <div class="border px-2 py-1 rounded-md flex items-center gap-2">
+        <input
+          class="focus:outline-none"
+          type="text"
+          name="nome"
+          id="nome"
+          placeholder="Digite alguma coisa..."
+        />
+        <img
+          class="hover:cursor-pointer"
+          src="/search.png"
+          onclick="redirectToSearch()"
+        />
+      </div>
+    </div>
+    <div class="flex flex-wrap gap-2">
+      <% if (eventos.length > 0) { %> <% eventos.forEach((evento) => { %>
+      <div
+        class="border rounded-md p-4 w-full max-w-[458px] flex flex-col justify-between"
+      >
+        <div>
+          <a
+            class="font-semibold text-2xl hover:underline visited:text-violet-500 mb-2"
+            href="/evento/<%= evento.id %>/listar"
+          >
+            <%= evento.nome %>
+          </a>
+        </div>
+
+        <div class="border-t mt-4 pt-4 text-sm text-gray-600">
+          <p>
+            Criado em: <span class="font-medium"><%= evento.criadoEm %></span>
+          </p>
+        </div>
+      </div>
+      <% }) %> <% } else { %>
+      <p class="text-gray-500 text-lg">Nenhum evento encontrado.</p>
+      <% } %>
+    </div>
+  </body>
+</html>
